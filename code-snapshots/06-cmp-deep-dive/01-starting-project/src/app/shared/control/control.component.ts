@@ -1,8 +1,9 @@
 import {
-  Component, ContentChild,
+  afterNextRender,
+  afterRender,
+  Component,
   contentChild,
   ElementRef,
-  HostListener,
   inject,
   input,
   ViewEncapsulation
@@ -24,6 +25,16 @@ export class ControlComponent {
   label = input.required<string>();
   private el = inject(ElementRef);
   private control = contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
+
+  constructor() {
+    afterRender(() => {
+      console.log("afterRender");
+    });
+
+    afterNextRender(() => {
+      console.log("afterNextRender");
+    });
+  }
 
   onClick() {
     console.log('Clicked!');
