@@ -1,4 +1,4 @@
-import {Component, computed, inject, input, OnInit} from '@angular/core';
+import {Component, computed, inject, input} from '@angular/core';
 import {UsersService} from "../users.service";
 import {RouterLink, RouterOutlet} from "@angular/router";
 
